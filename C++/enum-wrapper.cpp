@@ -61,7 +61,7 @@ public:
 
     };
 
-    static constexpr std::optional<Enum> parse(std::string_view input) {
+    [[nodiscard]] static constexpr std::optional<Enum> parse(std::string_view input) {
         if (
             const auto it = std::find_if(
                 values.cbegin(),
@@ -78,7 +78,7 @@ public:
         return std::nullopt;
     };
 
-    static constexpr const std::string_view& to_string(enum Enum value) {
+    [[nodiscard]] static constexpr const std::string_view& to_string(enum Enum value) {
         return values.at(static_cast<std::size_t>(value));
     };
 };
